@@ -54,7 +54,7 @@ namespace MyMod
 
 `DisplayName` is what players see in the in-game mod menu. `ModNameID` is a unique string identifier used by `ModLoader.Loader`, used to differentiate mods programmatically by name.
 
-`DisplayName` should be your concept name with no restrictions. `ModNameID` should be the alphabetical lowercase version of your concept name with no spaces, e.g. `"supercrazyengines"`.
+`DisplayName` should be your concept name with no restrictions. `ModNameID` should be the alphabetical lowercase version of your concept name in kebab-case, e.g. `"super-crazy-engines"`.
 
 ## Harmony Patching
 
@@ -84,33 +84,51 @@ namespace PartMenuAPI.Patches
    1. This harmony patcher should be a private variable in your entry point class, called `patcher`. Omit it entirely if you are not making any patches.
 4. If you are creating many patches on many different classes, you should create a folder for each class you are patching, with each file patching a specific method of that class being in it.
 
+## Logging
+
+When logging from your mod, you should always prefix your log messages with your `ModNameID` in square brackets, e.g. `[supercrazyengines] This is a log message from my mod.` This helps users and developers identify which mod a log message is coming from when debugging issues.
+
+An SFS mod called UniLog gives you a simple API to log messages with your mod's name automatically prefixed. It is recommended to use UniLog for logging in your mod, and hence it should be added as a dependency in your mod's `Dependencies` property.
+
+You can find more information about UniLog [here](https://github.com/kojamori/UniLog).
+
+However, examples will not use UniLog for simplicity.
+
 ## Boilerplate (Harmony)
 
 Here is a boilerplate template to be used when quickly making a mod's entry point.
+Replace the placeholder values with your own mod's information.
 
 ```csharp
 using HarmonyLib;
 using ModLoader;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace MyMod
 {
     public class Main : Mod
     {
+        public static Main Instance { get; private set; }
+        public Main()
+        {
+            Instance = this;
+        }
+
         public override string ModNameID => "mymod";
         public override string DisplayName => "My Mod";
         public override string Author => "Your Name Here";
-        public override string Description => "A fun mod.";
+        public override string Description => "Your mod description here.";
         public override string ModVersion => "1.0.0";
-        public override string MinimumGameVersionNecessary => "1.5.10.";
-        public override Dictionary<string, string> Dependencies => null;
+        public override string MinimumGameVersionNecessary => "1.6.00.0.";
+        public override Dictionary<string, string> Dependencies => new Dictionary<string, string>
+        {
+            { "unilog", "" }
+        };
 
 		public override void Early_Load()
         {
-	        // Remove this line and the Harmony field from the source if not patching.
 	        patcher.LoadAll();
-	        // ...
+	        this.logger = new Logger(new UnityDebugLogger(), ModNameID);
         }
 
 
@@ -119,7 +137,8 @@ namespace MyMod
 	        // ...
         }
 
-		private readonly Harmony patcher = new Harmony("com.your.id.here")
+        internal Logger logger;
+		private readonly Harmony patcher = new Harmony("com.your.id.here");
     }
 }
 ```
@@ -129,34 +148,37 @@ namespace MyMod
 ```csharp
 using ModLoader;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace MyMod
 {
     public class Main : Mod
     {
+        public static Main Instance { get; private set; }
+        public Main()
+        {
+            Instance = this;
+        }
+
         public override string ModNameID => "mymod";
         public override string DisplayName => "My Mod";
         public override string Author => "Your Name Here";
-        public override string Description => "A fun mod.";
+        public override string Description => "Your mod description here.";
         public override string ModVersion => "1.0.0";
-        public override string MinimumGameVersionNecessary => "1.5.10.";
-        public override Dictionary<string, string> Dependencies => null;
-
-		public override void Early_Load()
+        public override string MinimumGameVersionNecessary => "1.6.00.0.";
+        public override Dictionary<string, string> Dependencies => new Dictionary<string, string>
         {
-	        // ...
-        }
+            { "unilog", "" }
+        };
 
+        public override void Early_Load()
+        {
+            // ...
+        }
 
         public override void Load()
         {
-	        // ...
+            // ...
         }
     }
 }
 ```
-
-# Debug Logging
-
-Have all of your mods prefix any `Debug.Log` with `$"[Mod.Instance.DisplayName]"`.
