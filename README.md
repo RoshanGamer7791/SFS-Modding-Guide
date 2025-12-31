@@ -9,3 +9,7 @@ Find the docs at: [https://kojamori.github.io/SFS-Modding-Guide/](https://kojamo
 # Forums Post
 
 Find the forums post at: [https://jmnet.one/sfs/forum/index.php?threads/sfs-modding-guide-made-with-docusaurus.16908/](https://jmnet.one/sfs/forum/index.php?threads/sfs-modding-guide-made-with-docusaurus.16908//)
+
+# Contributing
+
+[Contribution Guidelines](https://kojamori.github.io/SFS-Modding-Guide/internal/contribution-guidelines)
