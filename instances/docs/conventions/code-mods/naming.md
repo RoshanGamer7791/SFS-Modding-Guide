@@ -1,4 +1,4 @@
-# Naming and Organisation Conventions
+# Naming
 
 This document outlines the naming and organisation conventions used in this project to ensure consistency and clarity for SFS modders, whether they are making a code mod, texture pack, or part pack.
 

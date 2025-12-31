@@ -56,7 +56,7 @@ const config: Config = {
       {
         id: "default", // Default ID
         path: "instances/docs", // Source folder
-        routeBasePath: "docs", // URL route (e.g., /docs/intro)
+        routeBasePath: "/", // URL route (e.g., /docs/intro)
         sidebarPath: "./sidebars.ts",
         editUrl: "https://github.com/kojamori/SFS-Modding-Guide/edit/main",
       },
@@ -127,19 +127,19 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Getting Started",
           items: [
             {
-              label: "Getting Started",
-              to: "docs/getting-started/introduction",
-            },
-            {
-              label: "Conventions and Style Guide",
-              to: "docs/conventions",
+              label: "Introduction",
+              to: "/",
             },
             {
               label: "Installing Mods",
-              to: "docs/getting-started/installation/",
+              to: "/getting-started/installation/",
+            },
+            {
+              label: "Quickstart Guides to Modding",
+              to: "/getting-started/quickstart",
             },
           ],
         },

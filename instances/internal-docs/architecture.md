@@ -8,7 +8,9 @@ The SFS Modding Guide is structured to provide comprehensive documentation for m
 
 ## Underlying Structure
 
-The documentation is built using Docusaurus, a modern static site generator that allows for easy content management and organization. The guide is divided into 3 main `docs` instances:
+The documentation is built using Docusaurus, a modern static site generator that allows for easy content management and organization. The guide is divided into 3 main `docs` instances.
+
+The landing page of the site is the "Getting Started" section, which provides an introduction to modding in SFS and guides users through the initial steps of creating and installing mods. The landing page is located at the root URL (`/`), and this was achieved by configuring the `slug` in the frontmatter of the `getting-started/index.mdx` file.
 
 ### `docs` (Docs)
 

@@ -9,9 +9,9 @@ This section of the SFS Modding Guide is dedicated to internal documentation for
 
 ## Table of Contents
 
-- [Contribution Guidelines](internal/contribution-guidelines)
-- [Style Guide](internal/style-guide)
-- [API Documentation Pipeline](internal/api-documentation-pipeline)
+- [Contribution Guidelines](contribution-guidelines)
+- [Style Guide](style-guide)
+- [API Documentation Pipeline](api-documentation-pipeline)
 - Using Docusaurus (TBD)
 - Maintaining the Wiki (TBD)
 - FAQs for Contributors (TBD)
