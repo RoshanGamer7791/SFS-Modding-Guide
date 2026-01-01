@@ -1,0 +1,64 @@
+# React Components
+
+Because MDX allows you to use React components within your markdown files, you can enhance your documentation with interactive and reusable components.
+The SFS Modding Guide documentation framework provides several built-in components that you can use to improve the presentation of your content.
+
+## Using the `<Figure>` Component
+
+The `<Figure>` component is designed to help you easily add images with captions and alt text to your documentation. Here’s how to use it:
+
+```markdown
+import Figure from '@site/src/components/Figure';
+
+<Figure
+  src="/gallery/your-image-file.png"
+  caption="Your image caption here"
+  alt="A brief description of the image for accessibility"
+  widthpercent="100"
+></Figure>
+```
+
+- `src`: The path to your image file. This should be relative to the `static` directory of your documentation site.
+- `caption`: A string that provides a caption for the image, displayed below it.
+- `alt`: A string that describes the image for accessibility purposes. This is important for users who rely on screen readers.
+- `widthpercent`: A number that sets the width of the image as a percentage of its container. For example, `100` means the image will take up the full width of its container.
+
+## Example Usage
+
+Here’s an example of how to include an image using the `<Figure>` component:
+
+```markdown
+import Figure from '@site/src/components/Figure';
+
+# Sample Image
+
+<Figure
+  src="/gallery/sample-image.png"
+  caption="This is a sample image."
+  alt="A description of the sample image for accessibility."
+  widthpercent="75"
+></Figure>
+```
+
+This will render the image located at `/static/gallery/sample-image.png`, with a caption below it and appropriate alt text for accessibility.
+You can adjust the `widthpercent` value to control the size of the image as needed.
+
+## Using the `ChildList` Component
+
+The `ChildList` component automatically generates a list of child pages for the current documentation page. This is useful for creating a table of contents or navigation section within your documentation.
+To use the `ChildList` component, simply import it and include it in your MDX file like this:
+
+```markdown
+import ChildList from "@site/src/components/ChildList";
+
+## Table of Contents
+
+<ChildList />
+```
+
+This will render a list of links to all child pages under the current page, making it easy for readers to navigate related content.
+
+## Contribution to Components
+
+If you have ideas for new components or improvements to existing ones, feel free to contribute! You can create your own React components and integrate them into the documentation framework.
+Make sure to explain them clearly in the documentation and give a reasonable justification for their addition in your pull request.
