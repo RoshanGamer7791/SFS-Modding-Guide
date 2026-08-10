@@ -16,8 +16,6 @@ export default function ChildList() {
           <Link to={item.href}>
             <strong>{item.label}</strong>
           </Link>
-          {/* Optional: Check if it's a category (folder) and label it */}
-          {item.type === "category" && <em> (Folder)</em>}
         </li>
       ))}
     </ul>
