@@ -103,13 +103,13 @@ const config: Config = {
           position: "left",
           label: "Guide",
         },
-        {
-          type: "docSidebar",
-          sidebarId: "apiSidebar",
-          docsPluginId: "api",
-          position: "left",
-          label: "API Reference",
-        },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "apiSidebar",
+        //   docsPluginId: "api",
+        //   position: "left",
+        //   label: "API Reference",
+        // },
         {
           type: "docSidebar",
           sidebarId: "internalSidebar",
