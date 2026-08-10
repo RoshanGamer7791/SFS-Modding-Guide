@@ -6,5 +6,5 @@
       "@site/*": ["./*"]
     }
   },
-  "exclude": [".docusaurus", "build"]
+  "exclude": [".docusaurus", "build", "archive"]
 }

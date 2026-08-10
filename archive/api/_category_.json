@@ -1,8 +1,0 @@
-{
-  "label": "SFS API",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "This section seeks to document the SFS internal API for advanced modders who want to extend or interact with the game at a deeper level."
-  }
-}
